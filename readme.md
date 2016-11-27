@@ -4,7 +4,11 @@
 
 ## About
 
-Loads of galaxy data to be had! For more information see [the API docs](http://laniakean.com/api).
+Loads of galaxy data to be had!
+
+If you find any bugs or unexpected behavior in the API, please raise an issue here. If you don't have a GitHub account, anonymous issue and feature request submission is set up [here](https://gitreports.com/issue/PirtleShell/laniakean-api-tests). **Feature requests welcome!**
+
+For more information on the API, see [the docs](http://laniakean.com/api).
 
 ## Usage
 
