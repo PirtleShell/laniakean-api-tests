@@ -2,9 +2,9 @@
   "name": "laniakean-api-tests",
   "version": "1.0.0",
   "description": "Test the galaxy data API for Laniakean.com",
-  "main": "test.js",
+  "main": "tests/index.js",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha tests/index.js"
   },
   "author": {
     "name": "Robert Pirtle",
