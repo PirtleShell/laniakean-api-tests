@@ -23,6 +23,7 @@ describe('Galaxies API', function() {
   const get = getAPI('galaxies/');
 
   require('./query-options')(get);
+  require('./data-fields')(get);
   require('./shorthands')(get);
   require('./special')(get);
 });
