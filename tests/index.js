@@ -22,7 +22,7 @@ describe('Galaxies API', function() {
   this.timeout(15000);
   const get = getAPI('galaxies/');
 
-  require('./data-options')(get);
+  require('./query-options')(get);
   require('./shorthands')(get);
   require('./special')(get);
 });

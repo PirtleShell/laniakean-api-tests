@@ -4,7 +4,7 @@ const arrayEqual = require('array-equal');
 const should = require('chai').should();
 
 module.exports = get => {
-  describe('DATA OPTIONS', function() {
+  describe('QUERY OPTIONS', function() {
 
     describe('no query default', function() {
       let res;
