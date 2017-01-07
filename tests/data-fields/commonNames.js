@@ -16,7 +16,7 @@ module.exports = get => {
       res.galaxies[0].should.have.property('commonNames');
       res.galaxies[0]['commonNames'].should.be.a('array');
       res.galaxies[0]['commonNames'].should.have.length(1);
-      res.galaxies[0]['commonNames'][0].should.equal('Pinwheel');
+      res.galaxies[0]['commonNames'][0].should.equal('Pinwheel Galaxy');
     });
 
     describe('galaxy with no common name', function (){
