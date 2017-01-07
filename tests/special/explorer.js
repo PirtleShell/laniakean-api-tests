@@ -20,9 +20,9 @@ module.exports = get => {
         res['4'].should.have.property('y');
         res['4'].should.have.property('z');
 
-        res['4'].x.should.equal(38.9467564745);
-        res['4'].y.should.equal(32.2720708924);
-        res['4'].z.should.equal(-0.000660867213142);
+        res['4'].x.should.equal(46.5288980991);
+        res['4'].y.should.equal(19.8342607987);
+        res['4'].z.should.equal(0.0118428695976);
       });
 
       it('defaults to all galaxies', function() {
@@ -46,9 +46,9 @@ module.exports = get => {
         res['4'].should.have.property('y');
         res['4'].should.have.property('z');
 
-        res['4'].x.should.equal(38.9467564745);
-        res['4'].y.should.equal(32.2720708924);
-        res['4'].z.should.equal(-0.000660867213142);
+        res['4'].x.should.equal(46.5288980991);
+        res['4'].y.should.equal(19.8342607987);
+        res['4'].z.should.equal(0.0118428695976);
       });
 
       it('queries proper number', function() {
