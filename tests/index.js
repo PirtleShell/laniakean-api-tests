@@ -1,8 +1,8 @@
 
 const getAPI = api => {
   return (query, cb) => {
-    const url = 'http://laniakean.com/api/v1/' + api + query;
-    require('http').get(url, res => {
+    const url = 'https://laniakean.com/api/v1/' + api + query;
+    require('https').get(url, res => {
       let body = '';
 
       res.on('data', chunk => {
