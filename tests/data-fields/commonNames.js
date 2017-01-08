@@ -34,5 +34,19 @@ module.exports = get => {
         res.galaxies[0]['commonNames'].should.have.length(0);
       });
     });
+
+    describe('=false', function (){
+      let res;
+      before(function(done) {
+        get('?commonNames=false', function(output) {
+          res = output;
+          done();
+        });
+      });
+
+      it('should not have commonNames object', function() {
+        res.galaxies[0].should.not.have.property('commonNames');
+      });
+    });
   });
 };
