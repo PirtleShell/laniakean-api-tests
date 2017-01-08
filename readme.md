@@ -23,4 +23,4 @@ $ npm test
 
 ## License
 
-MIT &copy; [Robert Pirtle](https://pirtle.xyz/)
+This is by [Robert Pirtle](https://pirtle.xyz/). The code's license is [MIT](http://choosealicense.com/licenses/mit/) and the documentation is public domain by [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

@@ -290,3 +290,20 @@ A variety of photo links for pretty galaxies.
 |       | `url <string>`    | URL of photo                               |
 |       | `alt <string>`    | photo description                          |
 |       | `credit <string>` | photo credit & copyright HTML              |
+
+
+-------
+
+<p xmlns:dct="http://purl.org/dc/terms/" style='text-align:center;font-size:16px'>
+  <a rel="license" style='text-decoration:none'
+     href="http://creativecommons.org/publicdomain/zero/1.0/">
+    <img src="https://licensebuttons.net/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+  </a>
+  <br />
+  To the extent possible under law,
+  <a rel="dct:publisher"
+     href="https://twitter.com/PirtleShell">
+    <span property="dct:title">Robert Pirtle</span></a>
+  has waived all copyright and related or neighboring rights to the
+  <span property="dct:title">Documentation of the Laniakean API</span>.
+</p>
