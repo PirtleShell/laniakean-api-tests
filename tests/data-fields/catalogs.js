@@ -19,12 +19,12 @@ module.exports = get => {
         arp: 281,
         sdss: 'J124207.23+323235.0'
       };
-      res.galaxies[0].should.have.property('catalogs');
-      res.galaxies[0]['catalogs'].should.be.a('object');
-      res.galaxies[0]['catalogs'].should.deep.equal(whale_catalogs);
+      res.should.have.property('catalogs');
+      res['catalogs'].should.be.a('object');
+      res['catalogs'].should.deep.equal(whale_catalogs);
     });
 
-    describe('=false', function (){
+    describe('= false', function (){
       let res;
       before(function(done) {
         get('?catalogs=false', function(output) {

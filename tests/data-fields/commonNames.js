@@ -13,10 +13,10 @@ module.exports = get => {
     });
 
     it('return as array', function() {
-      res.galaxies[0].should.have.property('commonNames');
-      res.galaxies[0]['commonNames'].should.be.a('array');
-      res.galaxies[0]['commonNames'].should.have.length(1);
-      res.galaxies[0]['commonNames'][0].should.equal('Pinwheel Galaxy');
+      res.should.have.property('commonNames');
+      res['commonNames'].should.be.a('array');
+      res['commonNames'].should.have.length(1);
+      res['commonNames'][0].should.equal('Pinwheel Galaxy');
     });
 
     describe('galaxy with no common name', function (){
@@ -29,9 +29,9 @@ module.exports = get => {
       });
 
       it('has empty array', function() {
-        res.galaxies[0].should.have.property('commonNames');
-        res.galaxies[0]['commonNames'].should.be.a('array');
-        res.galaxies[0]['commonNames'].should.have.length(0);
+        res.should.have.property('commonNames');
+        res['commonNames'].should.be.a('array');
+        res['commonNames'].should.have.length(0);
       });
     });
 
@@ -45,7 +45,7 @@ module.exports = get => {
       });
 
       it('should not have commonNames object', function() {
-        res.galaxies[0].should.not.have.property('commonNames');
+        res.should.not.have.property('commonNames');
       });
     });
   });
