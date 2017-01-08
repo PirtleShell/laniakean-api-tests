@@ -5,8 +5,6 @@
 I rewrote how the main API builds data queries to make it easier to extend. Also started adding more functionality.
 
 * `list_fields`
-  - [ ] documentation
-  - [ ] testing
 * `list=true -> list_pgcs=true`
   * requires changes: `db.py`
   - [ ] documentation

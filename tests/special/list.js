@@ -3,6 +3,21 @@ const globals = require('../globals');
 const should = require('chai').should();
 
 module.exports = get => {
+
+  describe('list_fields', function() {
+    let res;
+    before(function(done) {
+      get('?list_fields=true', function(output) {
+        res = output;
+        done()
+      });
+    });
+
+    it('returns an array of all fields', function() {
+      res.should.deep.equal(globals.DATA_FIELDS);
+    });
+  });
+
   describe('list', function() {
 
     describe('= true, without limit or sort', function() {
@@ -60,7 +75,7 @@ module.exports = get => {
 
       it('returns error', function() {
         res.should.have.property('error');
-        res.error.should.equal('Expected list=true.')
+        res.error.should.equal('Expected list=true.');
       });
     })
   });

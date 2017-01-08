@@ -111,10 +111,11 @@ The default `sort` for all queries is ascending, so the shorthand queries are al
 
 These queries are also available. They do not return standard galaxy objects.
 
-| Live? | Option            | Description                                                       | Default `limit` |
-|:------|:------------------|:------------------------------------------------------------------|:----------------|
-| ✓     | `list <bool>`     | just returns `pgcs` array, no `galaxies` data                     | `"all"`         |
-| ✓     | `explorer <bool>` | returns object of `x`, `y`, `z` starting position under `pgc` key | `"all"`         |
+| Live? | Option               | Description                                                       | Default `limit` |
+|:------|:---------------------|:------------------------------------------------------------------|:----------------|
+|       | `list_fields <bool>` | returns array of available data fields                            | N/A             |
+| ✓     | `list <bool>`        | just returns `pgcs` array, no `galaxies` data                     | `"all"`         |
+| ✓     | `explorer <bool>`    | returns object of `x`, `y`, `z` starting position under `pgc` key | `"all"`         |
 
 ### Errors
 
