@@ -6,18 +6,15 @@ I rewrote how the main API builds data queries to make it easier to extend. Also
 
 * `list_fields`
 * `list=true -> list_pgcs=true`
-  * requires changes: `db.py`
   - [ ] documentation
   - [ ] testing
 * `list_pgcs` returns just array
   - [ ] documentation
   - [ ] testing
 * `pgc=` only returns galaxy object
-  * requires changes: `galaxy-detail.md`/`controllers.js`
   - [ ] documentation
   - [ ] testing
 * `pgc=`not found - returns error object
-  * requires changes: galaxy not found 404 handling
   - [ ] documentation
   - [ ] testing
 * stopped supporting `sort-by` (as alias for `sort_by`)
@@ -48,3 +45,10 @@ I rewrote how the main API builds data queries to make it easier to extend. Also
 - [ ] sort
 - [ ] sort_by
 - [ ] pagination
+I
+# EXTERNAL CHANGES TO MAKE BEFORE GOING LIVE
+
+- [ ] `db.py` api calls
+- [ ] `controllers.js`
+  - [ ] `galaxy-detail.md` - `pgc` returns just galaxy object
+  - [ ] galaxy not found 404 handling -> returns error now
