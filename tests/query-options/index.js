@@ -4,5 +4,6 @@ module.exports = get => {
 
     require('./defaults')(get);
     require('./limit')(get);
+    require('./pgc')(get);
   });
 };

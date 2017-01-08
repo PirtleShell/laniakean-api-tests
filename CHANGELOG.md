@@ -8,11 +8,7 @@ I rewrote how the main API builds data queries to make it easier to extend. Also
 * `list=true -> list_pgcs=true`
 * `list_pgcs` returns just array
 * `pgc=` only returns galaxy object
-  - [ ] documentation
-  - [ ] testing
 * `pgc=`not found - returns error object
-  - [ ] documentation
-  - [ ] testing
 * stopped supporting `sort-by` (as alias for `sort_by`)
   - [ ] documentation
   - [ ] testing
