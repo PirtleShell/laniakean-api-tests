@@ -6,11 +6,7 @@ I rewrote how the main API builds data queries to make it easier to extend. Also
 
 * `list_fields`
 * `list=true -> list_pgcs=true`
-  - [ ] documentation
-  - [ ] testing
 * `list_pgcs` returns just array
-  - [ ] documentation
-  - [ ] testing
 * `pgc=` only returns galaxy object
   - [ ] documentation
   - [ ] testing

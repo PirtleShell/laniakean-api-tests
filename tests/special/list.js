@@ -18,56 +18,45 @@ module.exports = get => {
     });
   });
 
-  describe('list', function() {
+  describe('list_pgcs', function() {
 
     describe('= true, without limit or sort', function() {
       let res;
       before(function(done) {
-        get('?list=true', function(output) {
+        get('?list_pgcs=true', function(output) {
           res = output;
           done();
         });
       });
 
-      it('returns pgcs array', function() {
-        res.should.have.property('pgcs');
-        res.pgcs.should.be.a('array');
+      it('defaults to an array of all galaxies sorted by pgcs', function() {
+        res.should.be.a('array');
+        res.should.have.length(globals.TOTAL_GALAXIES);
+        res[0].should.equal(4);
+        res[globals.TOTAL_GALAXIES - 1].should.equal(9003164);
       });
-
-      it('defaults to all galaxies', function() {
-        res.pgcs.should.have.length(globals.TOTAL_GALAXIES);
-      });
-
-      it('begins with first pgc', function() {
-        res.pgcs[0].should.equal(4);
-      });
-
     });
 
     describe('= true, with limit', function() {
       let res;
       before(function(done) {
-        get('?list=true&limit=10', function(output) {
+        get('?list_pgcs=true&limit=10', function(output) {
           res = output;
           done();
         });
       });
 
-      it('returns pgcs array', function() {
-        res.should.have.property('pgcs');
-        res.pgcs.should.be.a('array');
-      });
-
-      it('queries proper number', function() {
-        res.pgcs.should.have.length(10);
+      it('returns array of proper length', function() {
+        const first_pgcs = [4, 27, 40, 51, 55, 64, 66, 70, 76, 82];
+        res.should.deep.equal(first_pgcs);
       });
     });
 
-    describe('= false', function() {
+    describe('!= true', function() {
       let res;
 
       before(function(done) {
-        get('?list=false', function(output) {
+        get('?list_pgcs=false', function(output) {
           res = output;
           done();
         });
@@ -75,7 +64,7 @@ module.exports = get => {
 
       it('returns error', function() {
         res.should.have.property('error');
-        res.error.should.equal('Expected list=true.');
+        res.error.should.equal('Expected list_pgcs=true.');
       });
     })
   });

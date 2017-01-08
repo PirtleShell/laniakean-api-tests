@@ -7,7 +7,7 @@ module.exports = get => {
     describe('list & explorer', function() {
       let res;
       before(function(done) {
-        get('?list=true&explorer=true', function(output) {
+        get('?list_pgcs=true&explorer=true', function(output) {
           res = output;
           done();
         });

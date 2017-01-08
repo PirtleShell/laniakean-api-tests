@@ -114,7 +114,7 @@ These queries are also available. They do not return standard galaxy objects.
 | Live? | Option               | Description                                                       | Default `limit` |
 |:------|:---------------------|:------------------------------------------------------------------|:----------------|
 |       | `list_fields <bool>` | returns array of available data fields                            | N/A             |
-| ✓     | `list <bool>`        | just returns `pgcs` array, no `galaxies` data                     | `"all"`         |
+| ✓     | `list_pgcs <bool>`   | returns array of PGCs in database                                 | `"all"`         |
 | ✓     | `explorer <bool>`    | returns object of `x`, `y`, `z` starting position under `pgc` key | `"all"`         |
 
 ### Errors
