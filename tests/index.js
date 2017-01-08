@@ -20,7 +20,7 @@ const getAPI = api => {
 
 describe('Galaxies API', function() {
   this.timeout(15000);
-  const get = getAPI('galaxies/');
+  const get = getAPI('test/');
 
   require('./query-options')(get);
   require('./data-fields')(get);
