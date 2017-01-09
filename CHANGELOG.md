@@ -29,6 +29,8 @@ I rewrote how the main API builds data queries to make it easier to extend. Also
 # MORE TO CHANGE
 
 * change the default galaxy object
+* accept list of pgcs
+* allow for `pgc`-like querying for all catalog fields
 * query by region
 
 # MORE TO TEST
