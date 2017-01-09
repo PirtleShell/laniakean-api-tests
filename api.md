@@ -19,6 +19,7 @@ For API problems or feature requests, please [raise an issue on GitHub](https://
   - [Query Options](#query-options)
   - [Shorthand Queries](#shorthand-queries)
   - [Special Queries](#special-queries)
+  - [Querying Individual Galaxies](#querying-individual-galaxies)
   - [Errors](#errors)
 - [Resolve Names API](#resolve-names-api)
 - [Galaxy Database Tables](#galaxy-database-tables)
@@ -32,7 +33,32 @@ For API problems or feature requests, please [raise an issue on GitHub](https://
 
 ## Galaxies API
 
-The endpoint [`api/v1/galaxies/`](https://laniakean.com/api/v1/galaxies/){target=_self} returns information about the galaxies used in this project. Queries to this API return objects of two arrays: an array of the PGC numbers of the galaxies under the key `pgcs`, and an array of galaxy objects under the key `galaxies`.
+The endpoint [`api/v1/galaxies/`](https://laniakean.com/api/v1/galaxies/){target=_self} returns information about the galaxies used in this project. Most queries to this API return an object of two arrays:
+
+  1. `pgcs` - an array of the PGC numbers of the galaxies returned by the query
+  2. `galaxies` - an array of galaxy data objects
+
+This allows for quickly locating a specific galaxy in a query result without filtering or mapping:
+
+```js
+// find info about a specific PGC in a Galaxies API response
+const result = JSON.parse(response);
+
+// let's look for the Whale Galaxy, PGC 42637
+const index = result.pgcs.indexOf(42637);
+
+if (index > 0) {
+  // the galaxy is there!
+  const whaleGalaxy = result.galaxies[index];
+
+  console.log(whaleGalaxy.commonNames);
+  //=> ['Whale Galaxy']
+  console.log(whaleGalaxy.dist);
+  //=> 7.35 (Megaparsecs)
+}
+```
+
+The only queries that don't return data in this format are the [special queries](#special-queries) and [queries for individual galaxies](#querying-individual-galaxies).
 
 ### Galaxy Objects
 
@@ -43,26 +69,21 @@ The API transfers galaxy data as objects of attributes which can be explicitly r
 // Commented out values are not yet implemented
 // https://laniakean.com/api/v1/galaxies/?pgc=50063
 {
-  pgcs: [ 50063 ],
-  galaxies: [
-    {
-      pgc: 50063,
-      dist: 6.95,
-      ra: "140312.6",
-      dec: "542056",
-      B_mag: 8.36,
-      Ks_mag: 5.94,
-      vhel: 237,
-      catalogs: {
-        ngc: '5457',
-        messier: '101',
-        ugc: '8981',
-        arp: 26,
-        sdss: 'J140312.52+542056.2'
-      },
-      commonNames: ['Pinwheel']
-    }
-  ]
+  pgc: 50063,
+  dist: 6.95,
+  ra: '140312.6',
+  dec: '542056',
+  B_mag: 8.36,
+  Ks_mag: 5.94,
+  vhel: 237,
+  catalogs: {
+    ngc: '5457',
+    messier: '101',
+    ugc: '8981',
+    arp: 26,
+    sdss: 'J140312.52+542056.2'
+  },
+  commonNames: ['Pinwheel Galaxy']
 }
 ```
 
@@ -88,13 +109,13 @@ You can control what data fields are in the return object by setting any data fi
 
 These options for modifying queries exist. Use them by adding `option=value` to your query string.
 
-| Live? | Option             | Description                                                       | Default Value |
-|:------|:-------------------|:------------------------------------------------------------------|:--------------|
-| ✓     | `limit <int>`      | number of galaxies to return or `all` for all galaxies            | `25`          |
-| ✓     | `page <int>`       | pagination of data, skips the first `page * limit` galaxies       | `1`           |
-| ✓     | `sort_by <string>` | choose a data value by which to sort the output                   | `"pgc"`       |
-| ✓     | `sort <string>`    | `"asc"` or `"desc"` (alias `"des"`), sort ascending or descending | `"asc"`       |
-| ✓     | `pgc <int>`        | overrides `limit`, returns data for this specific `pgc`           | none          |
+| Live? | Option             | Description                                                                                   | Default Value |
+|:------|:-------------------|:----------------------------------------------------------------------------------------------|:--------------|
+| ✓     | `limit <int>`      | number of galaxies to return or `all` for all galaxies                                        | `25`          |
+| ✓     | `page <int>`       | pagination of data, skips the first `page * limit` galaxies                                   | `1`           |
+| ✓     | `sort_by <string>` | choose a data value by which to sort the output                                               | `"pgc"`       |
+| ✓     | `sort <string>`    | `"asc"` or `"desc"` (alias `"des"`), sort ascending or descending                             | `"asc"`       |
+| ✓     | `pgc <int>`        | data for a specific galaxy. See [querying individual galaxies](#querying-individual-galaxies) | none          |
 
 ### Shorthand Queries
 
@@ -116,6 +137,24 @@ These queries are also available. They do not return standard galaxy objects.
 |       | `list_fields <bool>` | returns array of available data fields                            | N/A             |
 | ✓     | `list_pgcs <bool>`   | returns array of PGCs in database                                 | `"all"`         |
 | ✓     | `explorer <bool>`    | returns object of `x`, `y`, `z` starting position under `pgc` key | `"all"`         |
+
+### Querying Individual Galaxies
+
+The API allows for fetching data about individual galaxies based on their PGC number by setting the `pgc` field. All other query options and data fields function the same, but only the galaxy object is returned (_i.e._ there are no `pgcs` and `galaxies` keys).
+
+**Example:**
+```js
+// https://laniakean.com/api/v1/test/?pgc=42637&defaults=false&add_fields=ra,dec,dist,a,mtype,commonNames
+{
+  pgc: 42637,
+  ra: "124207.9",
+  dec: "+323232",
+  dist: 7.35,
+  a: 9.253,
+  mtype: "Scd",
+  commonNames: ["Whale Galaxy"]
+}
+```
 
 ### Errors
 
